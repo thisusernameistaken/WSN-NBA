@@ -1,0 +1,12 @@
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">×</span>
+    <p>You must be logged in to vote.</p>
+    <p>Click <a href="/login">here</a> to login.</p>
+  </div>
+  <% if flash[:not_signed_in] == true %>
+      <%= javascript_include_tag :not_signed_in %>
+  <% end %>
+</div>

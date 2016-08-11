@@ -1,0 +1,15 @@
+<div class="voteq">
+  <%= form_for :quality, remote: true, url: "/voteq/#{@trade.id}" do |f| %>
+      <%= f.submit "upvote", :id=>"vote_up" %>
+  <% end %>
+  <h3 id="quality"><%=@trade.quality%></h3>
+  <%= form_for :quality, remote: true, url: "/voteq/#{@trade.id}" do |f| %>
+      <%= f.submit "downvote", :id=>"vote_down" %>
+  <% end %>
+</div>
+
+<% if current_user and current_user.voted_up_on? @trade %>
+    <script><%= render :partial=>"up_quality.js.erb" %></script>
+<% elsif current_user and current_user.voted_down_on? @trade %>
+    <script><%= render :partial=>"down_quality.js.erb" %></script>
+<% end %>

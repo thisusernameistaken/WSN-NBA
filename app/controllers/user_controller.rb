@@ -31,7 +31,7 @@ class UserController < ApplicationController
     user = User.find_by_email(login_params[:email])
     if user and user.authenticate(login_params[:password])
       session[:user_id] = user.id
-      redirect_to "/"
+      redirect_to '/'
     else
       redirect_to '/login'
     end
@@ -39,7 +39,7 @@ class UserController < ApplicationController
   # GET /logout
   def logout
     session[:user_id] = nil
-    redirect_to "/"
+    redirect_to '/'
   end
   private
   def user_params

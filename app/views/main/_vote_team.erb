@@ -1,0 +1,22 @@
+<div class="vote">
+  <div id="vote">
+    <%= form_for :quality, url: "/vote/#{@trade.id}" do |f| %>
+        <%= f.submit @trade.teams[0].name, :id=>"team1", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+  <div id="vote">
+    <%= form_for :quality, url: "/vote/#{@trade.id}" do |f| %>
+        <%= f.submit "Both", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+  <div id="vote">
+    <%= form_for :quality, url: "/vote/#{@trade.id}" do |f| %>
+        <%= f.submit "Neither", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+  <div id="vote">
+    <%= form_for :quality, url: "/vote/#{@trade.id}" do |f| %>
+        <%= f.submit @trade.teams[1].name, :id=>"team2", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+</div>

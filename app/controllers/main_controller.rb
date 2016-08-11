@@ -108,17 +108,25 @@ class MainController < ApplicationController
     if params[:commit] == "downvote"
       if current_user.voted_down_on? @trade
         @trade.undisliked_by current_user
+        @trade.quality +=1
+        @trade.save
         render :un_quality
       else
         @trade.downvote_from current_user
+        @trade.quality -=1
+        @trade.save
         render :partial=>"down_quality.js.erb"
       end
     else
       if current_user.voted_up_on? @trade
         @trade.unliked_by current_user
+        @trade.quality -=1
+        @trade.save
         render :un_quality
       else
         @trade.upvote_from current_user
+        @trade.quality +=1
+        @trade.save
         render :partial=>"up_quality.js.erb"
       end
     end
