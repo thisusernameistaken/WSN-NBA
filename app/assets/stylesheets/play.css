@@ -1,0 +1,71 @@
+.title{
+    padding-top: 50px;
+    text-align: center;
+}
+
+#trade{
+    margin: 0px auto;
+}
+tr {
+    display: block;
+    float: left;
+}
+th, td {
+    display: block;
+}
+
+th {
+    font-size: 48px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+td{
+    font-size: 24px;
+    text-align: center;
+}
+
+#vote{
+    display: inline-block;
+    padding-right: 5%;
+}
+
+.vote{
+     text-align: center;
+     width: 60%;
+     margin: 0 auto;
+ }
+
+.voteq{
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+}
+#quality{
+    margin: 0 auto;
+}
+
+#vote_up{
+    border: none;
+    color: transparent;
+    background: url("//a.thumbs.redditmedia.com/aVaj3phzu2Z3edApr3CLzhNCn4SxwcMvFsEZNd5Gq_8.png") 0px -187px;
+    height: 20px;
+    width: 20px;
+}
+#vote_down{
+    border: none;
+    color: transparent;
+    background: url("//a.thumbs.redditmedia.com/aVaj3phzu2Z3edApr3CLzhNCn4SxwcMvFsEZNd5Gq_8.png") 0px -207px;
+    height: 20px;
+    width: 20px;
+}
+
+#team1{
+    background-color: red;
+    color: white;
+}
+
+#team2{
+    background-color: blue;
+    color: white;
+}

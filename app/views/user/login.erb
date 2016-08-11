@@ -1,0 +1,21 @@
+<div class="title">
+  <h1>Sign In</h1>
+  <ul class="list-inline">
+    <li>
+      <a href="/users/new">Register!</a>
+    </li>
+  </ul>
+  <%= form_for :user do |f| %>
+      <div id="reg_form">
+        <p>
+          <%= f.label :email, "Email Address" %><br>
+          <%= f.text_field :email %>
+        </p>
+        <p>
+          <%= f.label :password %><br>
+          <%= f.password_field :password %>
+        </p>
+        <%= f.submit "Sign in", :class => "btn btn-default btn-lg", :id => "buttons" %>
+      </div>
+  <% end %>
+</div>

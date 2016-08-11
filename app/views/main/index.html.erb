@@ -1,0 +1,142 @@
+
+<%= stylesheet_link_tag 'index' %>
+<!-- Header -->
+<% num = rand(3)+1 %>
+<style>
+  .intro-header{
+      background: url("/assets/background_img<%=num%>.jpg") no-repeat center center;
+  }
+  nav{
+      background-color: transparent !important;
+      border: transparent !important;
+  }
+</style>
+<a name="#"></a>
+<div class="intro-header">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="intro-message">
+          <h1>Who Says No?</h1>
+          <h3>An NBA Trade Game</h3>
+          <hr class="intro-divider">
+          <ul class="list-inline intro-social-buttons">
+            <li>
+              <a id="buttons" href="https://twitter.com/WSN" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+            </li>
+            <li>
+              <a id="buttons" href="https://github.com/thisusernameistaken" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+</div>
+<!-- /.intro-header -->
+
+<!-- Page Content -->
+
+<a  name="about"></a>
+<div class="content-section-a">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-sm-6">
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">Vote on Custom and Auto Generated Trades</h2>
+        <p class="lead">Vote on the Quality of the trade and which team would say no to it!</p>
+      </div>
+      <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+        <%= image_tag 'example1.png',:class=>"img-responsive" %>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+</div>
+<!-- /.content-section-a -->
+
+<div class="content-section-b">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">Updated Players</h2>
+        <p class="lead">With an updated databse of players, trades reflect their current worth</p>
+      </div>
+      <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+        <%= image_tag 'example2.png',:class=>"img-responsive" %>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+</div>
+<!-- /.content-section-b -->
+<a name="top"></a>
+<div class="content-section-a">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-5 col-sm-6">
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">Top Trade</h2>
+        <p class="lead">This top trade is between <a href="/play/<%=@trade.id%>"><%= @trade.teams[0].name %> and <%= @trade.teams[1].name %>.</a> View more trades on the <a href="/trades">trades page.</a></p>
+      </div>
+      <div class="col-lg-5 col-lg-offset-2 col-sm-6" style="margin-top: 5%;">
+        <div class="trade_table">
+          <a href="/play/<%=@trade.id%>">
+          <table id="trade">
+            <tr>
+              <td id="quality1"><%=@trade.quality%></td>
+            </tr>
+            <% @trade.teams.each do |team| %>
+                <tr>
+                  <th id="exampleh"><%=team.name%></th>
+                  <% team.players.each do |player| %>
+                      <td id="example"><%=player.name%></td>
+                  <%end%>
+                </tr>
+            <%end%>
+          </table>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+</div>
+<!-- /.content-section-a -->
+
+</div>
+<!--<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> /.banner -->
+
+<%= javascript_tag do %>
+    $(document).ready(function(){
+    $(window).scroll(function(){
+    if($(window).scrollTop() > $(window).height()){
+    $(".navbar").addClass("importantC")
+    $(".navbar").removeClass("importantT")
+    }
+    if($(window).scrollTop() < $(window).height()){
+    $(".navbar").addClass("importantT")
+    $(".navbar").removeClass("importantC")
+    }
+    })
+    })
+<%end%>

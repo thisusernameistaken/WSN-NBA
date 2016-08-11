@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag 'user' %>
+<div class="title">
+  <h1>Register</h1>
+  <ul class="list-inline">
+    <li>
+      <a href="/login">Login!</a>
+    </li>
+  </ul>
+<%= form_for @user, :validate =>true do |f| %>
+    <div id="reg_form">
+      <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label :email, "Email Address" %><br>
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+      </p>
+      <p>
+        <%= f.label :password_confirmation, "Confirm Password" %><br>
+        <%= f.password_field :password_confirmation %>
+      </p>
+      <%= f.submit "Sign Up", :class => "btn btn-default btn-lg", :id => "buttons" %>
+    </div>
+<% end %>
+</div>

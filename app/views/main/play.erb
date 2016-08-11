@@ -1,0 +1,89 @@
+
+<%= stylesheet_link_tag 'play' %>
+<div class="title">
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">×</span>
+      <p>You must be logged in to vote.</p>
+      <p>Click <a href="/login">here</a> to login.</p>
+    </div>
+    <% if flash[:not_signed_in] == true %>
+        <%= javascript_include_tag :not_signed_in %>
+    <% end %>
+  </div>
+  <h1>Trade #<%= @trade.id%></h1>
+  <ul class="list-inline">
+    <li>
+      <a href="/results/<%= @trade.id%>">Results?</a>
+    </li>
+    <li class="footer-menu-divider">⋅</li>
+    <li>
+      <a href="/play">New Trade?</a>
+    </li>
+    <li class="footer-menu-divider">⋅</li>
+    <li>
+      <a href="/play/<%=rand(Trade.all.length)%>">Random Trade?</a>
+    </li>
+  </ul>
+</div>
+
+<div class="voteq">
+  <%= form_for :quality, remote: true, url: "/voteq/#{@trade.id}" do |f| %>
+      <%= f.submit "upvote", :id=>"vote_up" %>
+  <% end %>
+  <h3 id="quality"><%=@votes%></h3>
+  <%= form_for :quality, remote: true, url: "/voteq/#{@trade.id}" do |f| %>
+      <%= f.submit "downvote", :id=>"vote_down" %>
+  <% end %>
+</div>
+
+<% if current_user and current_user.voted_up_on? @trade %>
+    <script><%= render :partial=>"up_quality.js.erb" %></script>
+<% elsif current_user and current_user.voted_down_on? @trade %>
+    <script><%= render :partial=>"down_quality.js.erb" %></script>
+<% end %>
+
+
+<div class="trade_table_main">
+  <table id="trade">
+    <% @trade.teams.each do |team| %>
+        <tr>
+          <th><%=team.name%></th>
+        <% team.players.each do |player| %>
+            <td><%=player.name%></td>
+        <%end%>
+        </tr>
+    <%end%>
+  </table>
+</div>
+<div class="title">
+  <h1>Who Says No?</h1>
+</div>
+<div class="vote">
+  <div id="vote">
+    <%= form_for :quality, url: "/vote/#{@trade.id}" do |f| %>
+        <%= f.submit @trade.teams[0].name, :id=>"team1", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+  <div id="vote">
+    <%= form_for :quality, url: "/vote/#{@trade.id}" do |f| %>
+        <%= f.submit "Both", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+  <div id="vote">
+    <%= form_for :quality, url: "/vote/#{@trade.id}" do |f| %>
+        <%= f.submit "Neither", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+  <div id="vote">
+    <%= form_for :quality, url: "/vote/#{@trade.id}" do |f| %>
+        <%= f.submit @trade.teams[1].name, :id=>"team2", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="share">
+  <h3>Share Trade: <%= text_field_tag "link",nil, onclick: "this.select()",readonly: true, value: "http://127.0.0.1:3000/play/#{@trade.id}", class: "share_text"%></h3>
+</div>

@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+nav {
+    background-color: burlywood !important;
+    border-color: burlywood !important;
+}
+nav .nav-wrapper {
+    float: right;
+    width: 30%;
+}
+#title{
+    padding-left: 15%;
+    font-size: 25px;
+}
+
+body{
+    background-color: #fff !important;
+}
+
+.importantC{
+    background-color: burlywood !important;
+    border-color: burlywood !important;
+}
+
+.importantT{
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+.share{
+    text-align: center;
+}
+.share_text{
+    text-align: center;
+}
+
+.flash{
+    padding-top: 50px;
+    text-align: center;
+    background-color: burlywood;
+    border-color: burlywood;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

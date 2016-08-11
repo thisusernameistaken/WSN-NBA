@@ -1,0 +1,38 @@
+// Place all the styles related to the Main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#exampleh{
+  font-size: 16px;
+  width: 200px
+}
+#example{
+  font-size: 12px;
+}
+.trade_table{
+  display: inline-block;
+  vertical-align: top;
+  border-right-style: solid;
+  border-top-style: solid;
+}
+
+.trade_table_main{
+  padding-top: 50px;
+  vertical-align: top;
+}
+
+#trades{
+  text-align: center;
+}
+
+#quality1{
+  font-size: 15px !important;
+  padding: 1px 7px;
+  background-color: burlywood;
+  border-color: burlywood;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+#table_row{
+  margin-right: -10px;
+}

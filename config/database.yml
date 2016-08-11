@@ -1,0 +1,14 @@
+development: 
+  adapter: mysql
+  database: WSN_dev
+  host: "127.0.0.1"
+  username: WSN_admin
+  password: <%= ENV['RAILS_DB_PWD'] %>
+  pool: 30
+production:  
+  adapter: mysql
+  database: WSN_pro
+  host: "127.0.0.1"
+  username: WSN_admin
+  password: <%= ENV['RAILS_DB_PWD'] %>
+

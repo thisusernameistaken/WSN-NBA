@@ -1,0 +1,3 @@
+$("h3#quality").text(<%= @trade.get_upvotes.size - @trade.get_downvotes.size %>)
+document.getElementById("vote_down").style.background = 'url("//a.thumbs.redditmedia.com/aVaj3phzu2Z3edApr3CLzhNCn4SxwcMvFsEZNd5Gq_8.png") -20px -207px'
+document.getElementById("vote_up").style.background = 'url("//a.thumbs.redditmedia.com/aVaj3phzu2Z3edApr3CLzhNCn4SxwcMvFsEZNd5Gq_8.png") 0px -187px'
